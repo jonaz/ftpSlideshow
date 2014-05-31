@@ -32,10 +32,8 @@ if($doFetch){
 	foreach($filesToDownload as $file){
 		$path = $paths[$_GET['folder']].'/'.$file;
 		$localPath = $localTempDir.'/'.$file;
-		if (ftp_get($conn_id, $localPath, $path, FTP_BINARY)) {
-			//echo "Successfully written to $localPath<br>";
-		} else {
-			//echo "There was a problem<br>";
+		if(substr($file,-4) == '.jpg'){
+			ftp_get($conn_id, $localPath, $path, FTP_BINARY);
 		}
 	}
 
